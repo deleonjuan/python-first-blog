@@ -1,8 +1,21 @@
 body{
  margin-top: 1rem;   
+ background-color: #f6f6f6;
 }
 
 h4{
     color: #03a9f4;
     font-family: Lobster;
+}
+.card{
+    box-shadow: 0 5px 8px rgba(0,0,0,0.3);
+}
+#encabezado{
+    background-color: #009688;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+#encabezado h1 a{
+    color: #fefefe;
 }
