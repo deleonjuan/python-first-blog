@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="card text-center">
+    <div class="card-header">
+        Publicacion
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ post.titulo }}</h5>
+        <p class="card-text">{{ post.texto|linebreaksbr }}</p>
+    </div>
+    <div class="card-footer text-muted">
+        {{ post.published_date }}
+    </div>
+</div>
+{% endblock %}

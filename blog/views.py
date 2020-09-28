@@ -1,9 +1,16 @@
 from django.shortcuts import render
 from django.utils import timezone
 from .models import Publicacion
+from django.shortcuts import render, get_object_or_404
+
+#Publicacion.objects.get(pk=pk)
 
 
 def publicacion_lista(request):
     publicaciones = Publicacion.objects.filter(
         published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/publicacion_lista.html', {'publicaciones':publicaciones})
+
+def post_detail(request, pk):
+    post = get_object_or_404(Publicacion, pk=pk)
+    return render(request, 'blog/detalle_publicacion.html', {'post': post})

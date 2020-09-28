@@ -1,20 +1,13 @@
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for publicacion in publicaciones %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h4 class="card-title"><a href="{% url 'post_detail' pk=publicacion.pk %}">{{ publicacion.titulo }}</a></h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{ publicacion.published_date }}</h6>
+            <p class="card-text">{{ publicacion.texto }}</p>
         </div>
-
-
-{% for publicacion in publicaciones %}
-        <div>
-            <p>{{ publicacion.published_date }}</p>
-            <h2>{{ publicacion.titulo }}</h2>
-            <p>{{ publicacion.texto }}</p>
-        </div>
-        {% endfor %}
-
-    </body>
-</html>
+    </div>
+    {% endfor %}
+{% endblock %}
