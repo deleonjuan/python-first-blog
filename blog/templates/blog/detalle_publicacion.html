@@ -8,6 +8,7 @@
     </div>
     <div class="card-body">
         <h5 class="card-title">{{ post.titulo }}</h5>
+        <a class="btn btn-default" href="{% url 'publicacion_editar' pk=post.pk %}"><span class="fa fa-pencil"></span></a>
         <p class="card-text">{{ post.texto|linebreaksbr }}</p>
     </div>
     <div class="card-footer text-muted">
