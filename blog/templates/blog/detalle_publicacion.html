@@ -7,8 +7,19 @@
         Publicacion
     </div>
     <div class="card-body">
+        {% if post.published_date %}
+        <div class="date">
+            {{ post.published_date }}
+        </div>
+        {% else %}
+        <a class="btn btn-default" href="{% url 'publicacion_publicar' pk=post.pk %}">Publicar</a>
+        {% endif %}
         <h5 class="card-title">{{ post.titulo }}</h5>
-        <a class="btn btn-default" href="{% url 'publicacion_editar' pk=post.pk %}"><span class="fa fa-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'publicacion_editar' pk=post.pk %}"><span
+                class="fa fa-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'publicacion_borrar' pk=post.pk %}"><span
+                class="fa fa-remove"></span></a>
+
         <p class="card-text">{{ post.texto|linebreaksbr }}</p>
     </div>
     <div class="card-footer text-muted">
